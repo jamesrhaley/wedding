@@ -1,93 +1,102 @@
-! function(a, b) {
-    var c = function(a) {
-            return a.trim ? a.trim() : a.replace(/^\s+|\s+$/g, "")
+var SIDEMENU = function ( wind ) {
+    "use strict";
+    var window_Doc = wind.document,
+        navScroll,
+        diveInDoc = function (wind) {
+            return wind.trim ? wind.trim() : wind.replace(/^\s+|\s+$/g, "");
         },
-        d = function(a, b) {
-            return -1 !== (" " + a.className + " ").indexOf(" " + b + " ")
+        getClass = function (wind, window_Doc) {
+            return -1 !== (" " + wind.className + " ").indexOf(" " + window_Doc + " ");
         },
-        e = function(a, b) {
-            d(a, b) || (a.className = "" === a.className ? b : a.className + " " + b)
+        getClassSize = function (wind, window_Doc) {
+            getClass(wind, window_Doc) || (wind.className = "" === wind.className ? window_Doc : wind.className + " " + window_Doc);
         },
-        f = function(a, b) {
-            a.className = c((" " + a.className + " ").replace(" " + b + " ", " "))
+        checkViewPort = function (wind, window_Doc) {
+            wind.className = diveInDoc((" " + wind.className + " ").replace(" " + window_Doc + " ", " "));
         },
-        g = function(a, b) {
-            if (a)
+        checkValue = function (wind, window_Doc) {
+            if (wind) {
                 do {
-                    if (a.id === b) return !0;
-                    if (9 === a.nodeType) break
-                } while (a = a.parentNode);
-            return !1
-        },
-        h = b.documentElement,
-        i = (a.Modernizr.prefixed("transform"), a.Modernizr.prefixed("transition")),
-        j = function() {
-            var a = {
-                WebkitTransition: "webkitTransitionEnd",
-                MozTransition: "transitionend",
-                OTransition: "oTransitionEnd otransitionend",
-                msTransition: "MSTransitionEnd",
-                transition: "transitionend"
-            };
-            return a.hasOwnProperty(i) ? a[i] : !1
-        }();
-    a.App = function() {
-        var c = !1,
-            k = {},
-            l = b.getElementById("inner-wrap"),
-            m = !1,
-            n = "js-nav";
-
-        return k.init = function() {
-            if (!c) {
-                c = !0;
-                var o = function(a) {
-                    a && a.target === l && b.removeEventListener(j, o, !1), m = !1
-                };
-                k.closeNav = function() {
-                    if (m) {
-                        var c = j && i ? parseFloat(a.getComputedStyle(l, "")[i + "Duration"]) : 0;
-                        c > 0 ? b.addEventListener(j, o, !1) : o(null)
+                    if (wind.id === window_Doc) {
+                        return !0;
                     }
-                    f(h, n), m = !1
-                }, k.openNav = function() {
-                    m || (e(h, n), m = !0)
-                }, k.toggleNav = function(a) {
-                    m && d(h, n) ? k.closeNav() : k.openNav(), a && a.preventDefault()
-                }, b.getElementById("nav-open-btn").addEventListener("click", k.toggleNav, !1), b.getElementById("nav-close-btn").addEventListener("click", k.toggleNav, !1), b.addEventListener("click", function(a) {
-                    m && !g(a.target, "nav") && (a.preventDefault(), k.closeNav())
-                }, !0), e(h, "js-ready")
+                    if (9 === wind.nodeType) {
+                        break;
+                    }
+                }
+                while (wind = wind.parentNode) {
+                    return !1;
+                }
             }
-        }, k
-    }()
-, a.addEventListener && a.addEventListener("DOMContentLoaded", a.App.init, !1)
-}(window, window.document)
-, $(document).ready(function() {
-    $("input[type=radio]").parents("li").addClass("radio")
-    
-    , $(".back-to-top").click(function() {
-        return $("html, body").animate({
-            scrollTop: $("body").offset().top
-        }, 500), !1
-    })
-}), $(window).bind("load", function() {
-    $(".page-intro").width($(".page-title__l1").width())
-});
+        },
+        element = window_Doc.documentElement,
+        modernGroup = ( wind.Modernizr.prefixed("transform"), wind.Modernizr.prefixed("transition") ),// just coming back if it is transition or transform
+        venderNames = function () {
+            var vederObject = {
+                    WebkitTransition: "webkitTransitionEnd",
+                    MozTransition: "transitionend",
+                    OTransition: "oTransitionEnd otransitionend",
+                    msTransition: "MSTransitionEnd",
+                    transition: "transitionend"
+                };
+            return vederObject.hasOwnProperty(modernGroup) ? vederObject[modernGroup] : !1;
+        };
+        
 
-$(".js-nav-toggle").click(function() {
-    return $(".nav--primary").slideToggle().toggleClass("nav--open"), !1
-}), 
-$(window).resize(function() {
-    $(".page-intro").width($(".page-title__l1").width())
-});
+    navScroll = (function () {
+        var navObject = {},
+            isOpen = !1,
+            innerWrap = window_Doc.getElementById("inner-wrap"),
+            m = !1,
+            addClassName = "js-nav",
+            recall = function ( trans_event ) {
+                trans_event && trans_event.target === innerWrap && window_Doc.removeEventListener(venderNames, recall, !1);
+                m = !1;
+            };
 
-// $('ul.mainNav li a').on('click', function() {
-//     $('ul.mainNav li a').parent().removeClass('active');
-//     $(this).parent().addClass('active');
-//     var id = $(this).attr('id');
-//     var wrapper = $('#wrapper-' + id);
+        navObject.closeNav = function () {
+                if (m) {
+                    var c = venderNames && modernGroup ? parseFloat(wind.getComputedStyle(innerWrap, "")[modernGroup + "Duration"]) : 0;
+                    c > 0 ? window_Doc.addEventListener(venderNames, recall, !1) : recall(null);
+                }
+                checkViewPort(element, addClassName);
+                m = !1;
+            };
 
-//     $('.body').removeClass('active');
-//     $(wrapper).addClass('active');
-// });
+        navObject.openNav = function () {
+                m || ( getClassSize(element, addClassName), m = !0 );
+            };
+
+        navObject.toggleNav = function ( mouse_toggle ) {
+                m && getClass( element, addClassName ) ? navObject.closeNav() : navObject.openNav();
+                mouse_toggle && mouse_toggle.preventDefault();
+            };
+        navObject.init = function () {
+            if (!isOpen) {
+                isOpen = !0;
+
+                window_Doc.getElementById( "nav-open-btn" ).addEventListener( "click", navObject.toggleNav, !1 );
+                window_Doc.getElementById( "nav-close-btn" ).addEventListener( "click", navObject.toggleNav, !1 );
+                window_Doc.addEventListener("click", function ( mouse_toggle ) {
+                    m && !checkValue( mouse_toggle.target, "nav" ) && ( mouse_toggle.preventDefault(), navObject.closeNav() );
+                }, !0);
+                getClassSize( element, "js-ready" );
+            }
+        }
+
+        return navObject;
+    })()
+
+    return wind.addEventListener && wind.addEventListener( "DOMContentLoaded", navScroll.init, !1 );
+}
+
+SIDEMENU( window );
+
+
+
+
+
+
+
+
 

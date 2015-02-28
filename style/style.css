@@ -83,12 +83,19 @@ body, .copy-block {
     font-family: 'Hoefler Text', Century, Garamond, 'Times New Roman', serif;
     line-height: 1.5;
 }
-h1,h2,h3,h4,h5,h6 {
-    margin-bottom: .65em;
-    margin-top: 2em;
+h1,h2,h3,h4,h5,h6,.clean {
     font-family: "Helvetica Neue",Arial, sans-serif;
     text-transform: uppercase;
     letter-spacing: .1em
+}
+h1,h2,h3,h4,h5,h6 {
+    margin-bottom: .65em;
+    margin-top: 2em;
+    letter-spacing: .1em
+}
+.clean{
+    font-size: 1rem;
+    padding: 1rem 0;
 }
 h1,blockquote,pre,p,ul,ol,dl,hr {margin-top:0}
 p,ul,ol,dl,hr,form,table,blockquote,pre {font-style:normal;margin-bottom:2em;font-size:1.3em}
@@ -125,7 +132,17 @@ button.submit,.btn--solid {background:#252525;border:none;padding:.75em 1.5em}
 button.submit:hover,.btn--solid:hover {background-color:#3f3f3f}
 .btn--support,.btn--support:link {margin-bottom:.6em}
 blockquote {margin-left:0;margin-right:0}
-@media screen and (min-width: 58.75em) {blockquote {padding-left:2em;padding-right:2em}
+.hidden{
+    display:none;
+}
+@media screen and (min-width: 58.75em) {
+    blockquote {
+        padding-left:2em;
+        padding-right:2em
+    }
+    .hidden {
+        display: none;
+    }
 }
 blockquote {
     font-family:'Hoefler Text', Century, Garamond, 'Times New Roman', serif;
@@ -147,28 +164,7 @@ a:hover {border-bottom:2px solid;border-color:#fff}
     font-size: 1.2rem;
 }
 
-.icon:before,[class^="icon--"]:before,[class*=" icon--"]:before {font-family:"Mixd";font-weight:normal;font-style:normal;speak:none;display:inline-block;text-decoration:inherit;margin-right:.2em;position:relative;line-height:1em;top:1px}
-.icon--large:before {font-size:1.35em;line-height:1.2em;padding-right:.2em}
-.icon--pad:before {padding-right:.3em}
-.icon--build:before {content:"\e000"}
-.icon--define:before {content:"\e001"}
-.icon--design:before {content:"\e002"}
-.icon--launch:before {content:"\e003"}
-.icon--menu:before {content:"\e005"}
-.icon--heart:before {content:"\e004"}
-.icon--facebook:before {content:"\e006"}
-.icon--twitter:before {content:"\e007"}
-.icon--close:before {content:"\e008"}
-.icon--phone:before {content:"\e00c"}
-.icon--mail:before {content:"\e00d"}
-.icon--team:before {content:"\e00e"}
-.icon--empathy:before {content:"\e00f"}
-.icon--heart-small:before {content:"\e010"}
-.icon--eye:before {content:"\e011"}
-.icon--top:before {content:"\e012"}
-.icon--tick:before {content:"\e009";-moz-border-radius:100%;-webkit-border-radius:100%;border-radius:100%;-moz-background-clip:padding;-webkit-background-clip:padding-box;background-clip:padding-box;border:2px solid #252525;height:1em;width:1em}
-.icon--arrow:before {content:"\e00a";-moz-border-radius:100%;-webkit-border-radius:100%;border-radius:100%;-moz-background-clip:padding;-webkit-background-clip:padding-box;background-clip:padding-box;height:1em;width:1em;background-color:#1b49be}
-.icon--arrow-left:before {content:"\e00b";-moz-border-radius:100%;-webkit-border-radius:100%;border-radius:100%;-moz-background-clip:padding;-webkit-background-clip:padding-box;background-clip:padding-box;height:1em;width:1em}
+
 @media screen and (min-width: 58.75em) {.viewport {height:100%;overflow-y:hidden}
 .viewport body {height:100%}
 }
@@ -257,10 +253,43 @@ a:hover {border-bottom:2px solid;border-color:#fff}
 .js-ready #nav {display:inline;height:100%;width:40%;left:-40%}
 .js-ready #inner-wrap {position:relative;left:0}
 .js-nav #inner-wrap {left:40%}
-.csstransforms3d.csstransitions.js-ready #nav {width:40%;left:0;-moz-transform:translate3d(-100%, 0, 0);-webkit-transform:translate3d(-100%, 0, 0);transform:translate3d(-100%, 0, 0);-moz-backface-visibility:hidden;-webkit-backface-visibility:hidden;backface-visibility:hidden}
-.csstransforms3d.csstransitions.js-ready #inner-wrap {left:0 !important;-moz-transform:translate3d(0, 0, 0);-webkit-transform:translate3d(0, 0, 0);transform:translate3d(0, 0, 0);-moz-backface-visibility:hidden;-webkit-backface-visibility:hidden;backface-visibility:hidden;-moz-transition:-moz-transform 500ms ease;-o-transition:-o-transform 500ms ease;-webkit-transition:-webkit-transform 500ms ease;transition:transform 500ms ease}
-.csstransforms3d.csstransitions.js-nav #nav {-moz-transform:translate3d(-100%, 0, 0);-webkit-transform:translate3d(-100%, 0, 0);transform:translate3d(-100%, 0, 0)}
-.csstransforms3d.csstransitions.js-nav #inner-wrap {-moz-transform:translate3d(40%, 0, 0);-ms-transform:translate3d(40%, 0, 0);-webkit-transform:translate3d(40%, 0, 0);transform:translate3d(40%, 0, 0)}
+
+/* where nav is created happens */
+.csstransforms3d.csstransitions.js-ready #nav {
+    width:40%;
+    left:0;
+    -moz-transform:translate3d(-100%, 0, 0);
+    -webkit-transform:translate3d(-100%, 0, 0);
+    transform:translate3d(-100%, 0, 0);
+    -moz-backface-visibility:hidden;
+    -webkit-backface-visibility:hidden;
+    backface-visibility:hidden
+}
+/* where the menu transition happens */
+.csstransforms3d.csstransitions.js-ready #inner-wrap {
+    left:0 !important;-moz-transform:translate3d(0, 0, 0);
+    -webkit-transform:translate3d(0, 0, 0);
+    transform:translate3d(0, 0, 0);
+    -moz-backface-visibility:hidden;
+    -webkit-backface-visibility:hidden;
+    backface-visibility:hidden;
+    -webkit-transition: all 450ms cubic-bezier(0.365, 0.070, 0.015, 0.990); 
+       -moz-transition: all 450ms cubic-bezier(0.365, 0.070, 0.015, 0.990); 
+         -o-transition: all 450ms cubic-bezier(0.365, 0.070, 0.015, 0.990); 
+            transition: all 450ms cubic-bezier(0.365, 0.070, 0.015, 0.990); /* custom */
+
+    -webkit-transition-timing-function: cubic-bezier(0.365, 0.070, 0.015, 0.990); 
+       -moz-transition-timing-function: cubic-bezier(0.365, 0.070, 0.015, 0.990); 
+         -o-transition-timing-function: cubic-bezier(0.365, 0.070, 0.015, 0.990); 
+            transition-timing-function: cubic-bezier(0.365, 0.070, 0.015, 0.990); /* custom */
+}
+
+.csstransforms3d.csstransitions.js-nav #inner-wrap {
+    -moz-transform:translate3d(40%, 0, 0);
+    -ms-transform:translate3d(40%, 0, 0);
+    -webkit-transform:translate3d(40%, 0, 0);
+    transform:translate3d(40%, 0, 0)
+}
 }
 @media screen and (max-width: 38em) {.js-ready #nav {width:80%;left:-80%}
 .js-nav #inner-wrap {left:80%}
@@ -399,7 +428,7 @@ a:hover {border-bottom:2px solid;border-color:#fff}
 .nav--stacked li {display:list-item;margin-bottom:0}
 .nav--stacked a {display:block;padding:.5em 0}
 .nav--blocked a {display:block;padding:.5em;background-color:#F5F5F5}
-.nav-container {clear:both;background-color:#eee;padding-top:3.8em}
+.nav-container {clear:both;background-color:#eee;padding-top:48px}
 @media screen and (min-width: 58.75em) {.nav-container {background:transparent;padding-top:0}
 }
 .nav--primary {font-family:"Helvetica Neue",sans-serif;font-weight:bold;font-size:1.1em;text-transform:uppercase;letter-spacing:.2em;margin-bottom:0;background-color:#FFF}
@@ -427,7 +456,7 @@ a:hover {border-bottom:2px solid;border-color:#fff}
 @media screen and (min-width: 58.75em) {.nav-toggle:link,.nav-toggle:visited {display:none}
 }
 .nav-toggle--open {top:0;left:0;padding:.2em;font-size:2.5em;height:1.1em;width:1.1em;background-color:rgba(255,255,255,0.15)}
-.nav-toggle--close:link,.nav-toggle--close:visited {top:.4em;left:.5em;font-size:2em;color:rgba(0,0,0,0.25)}
+.nav-toggle--close:link,.nav-toggle--close:visited {top:.3em;left:.5em;font-size:2em;color:rgba(0,0,0,0.25)}
 .nav--tertiary {font-size:.875em}
 @media screen and (min-width: 58.75em) {.nav--tertiary {margin-bottom:.5em;text-align:center}
 .nav--tertiary li {border-left-color:#999}
@@ -1094,3 +1123,4 @@ pre .regexp {
 .jj {
     font-family: font-family: 'Bodoni MT', Didot, 'Didot LT STD', 'Hoefler Text', Garamond, 'Times New Roman', serif;
 }
+
