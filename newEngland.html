@@ -9,6 +9,14 @@
     <title>James &#38; Joanna</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="stylesheet" href="style/style.css">
+    <link href="src/css/swipebox.css" rel="stylesheet">
+    <script type="text/javascript">
+        var JJWED = JJWED || {};
+        JJWED.pic = function (img) {
+            var imgWrapper = img.parentNode;
+            imgWrapper.className += imgWrapper.className ? ' loaded' : 'loaded';
+        };
+    </script>
     
 
 </head>
@@ -48,7 +56,10 @@
                         <div class="figure__wrap">
 
                             <figure class="figure__inner">
-                                <img src="img/newEngland.png" class="figure__object">
+                                <a class="sb-video" href="#slider">
+                                    <div class="img_wrapper">
+                                        <img src="img/newEngland.png" class="figure__object" alt="" onload="JJWED.pic(this)">
+                                    </div>
                                 <br>
                                 <div class="copy-block p">
                                 <figcaption class="non_figure__caption">
@@ -82,6 +93,7 @@
                                         <br>
                                         <div class="clean"><a href="nashville.html" class="small-btn">Nashville</a></div>
                                         <div class="clean"><a href="registry.html" class="small-btn">Registry</a></div>
+                                        <div class="sb-video clean"><a href="#slider" class="small-btn">Pictures</a></div>
                                         <div class="clean"><a href="index.html" class="btn">Back home</a></div>
                                     
                                     </figcaption>
@@ -94,9 +106,53 @@
             </div>
         </div>
     </div>
-    <script src="js/moderize.js"></script>
+
     <script type='text/javascript' src='js/wedding.js'></script>
-    <div class="back-to-top icon--top" href="#top"></div>
 
 </body>
+<footer>
+
+    <script src="lib/jquery-2.1.0.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="src/js/jquery.swipeboxMINE.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+        var JJWED = JJWED || {};   
+        
+        JJWED.picArray = [
+            "img/slider/after-wedding.jpg",
+            "img/slider/at-the-pond.jpg",
+            "img/slider/dissertation.jpg"
+        ];
+
+        JJWED.preCacheImage = function () {
+            for( i = 0,l = JJWED.picArray.length; i < l; i++ ) {
+                var url = JJWED.picArray[i],
+                    img = new Image();
+         
+                img.src = url;
+            };
+        };
+
+        window.onload = JJWED.preCacheImage();
+
+        $( document ).ready(function() {
+      
+            $( '.sb-video' ).click( function( e ) {
+            e.preventDefault();
+            $.swipebox([
+                { href : "img/slider/after-wedding.jpg", title : 'Us' },
+                { href : "img/slider/at-the-pond.jpg", title : 'At the pond' },
+                { href : "img/slider/dissertation.jpg", title : 'One dissertation defended' },
+                { href : "img/slider/Duckwitch.jpg", title : 'The Duckwitch pumpkin' },
+                { href : "img/slider/easter.jpg", title : 'Easter in Nashville' },
+                { href : "img/slider/go-sox.jpg", title : 'Go Red Sox!' },
+                { href : "img/slider/hats.jpg", title : "Party at Sandy's" },
+                { href : "img/slider/Newport.jpg", title : 'Overlooking the cliffs in Newport RI' },
+                { href : "img/slider/james-and-joanna.jpg", title : 'Two lucky people' }
+            ]);
+          });
+        });
+
+    </script>
+    
+</footer>
 <html>

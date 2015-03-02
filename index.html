@@ -9,6 +9,15 @@
     <title>James &#38; Joanna</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="stylesheet" href="style/style.css">
+    <script type="text/javascript">
+        var JJWED = JJWED || {};
+        JJWED.pic = function (img) {
+            var imgWrapper = img.parentNode,
+                addClass = imgWrapper.className += imgWrapper.className ? ' loaded' : 'loaded';
+
+            return addClass;
+        };
+    </script>
     
 
 </head>
@@ -49,7 +58,12 @@
                         <div class="figure__wrap">
 
                             <figure class="figure__inner">
-                                <img src="img/me_and_jo.png" class="figure__object">
+                                
+                                <div class="img_wrapper">
+                                    <img src="img/me_and_jo.png" class="figure__object" alt="" onload="JJWED.pic(this)
+                                    ">
+                                </div>
+                               
                                 <br>
                                 <figcaption class="figure__caption">
                                         
@@ -70,8 +84,27 @@
         </div>
 
 
-        <script src="js/moderize.js"></script>
+
         <script type='text/javascript' src='js/wedding.js'></script>
+        <script type="text/javascript">  
+            // var JJWED = JJWED || {};   
+            // 
+            // JJWED.picArray = [
+            //     "img/nashville2.png"
+            // ];
+
+            // JJWED.preCacheImage = function () {
+            //     for( i = 0,l = JJWED.picArray.length; i < l; i++ ) {
+            //         var url = JJWED.picArray[i],
+            //             img = new Image();
+             
+            //         img.src = url;
+            //     };
+            // };
+
+            // window.onload = JJWED.preCacheImage();
+        </script>
+
 
  
 
