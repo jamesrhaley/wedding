@@ -1,4 +1,4 @@
-/*! normalize.css v2.0.1 | MIT License | git.io/normalize */article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary {display:block}
+article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary {display:block}
 audio,canvas,video {display:inline-block}
 audio:not([controls]) {display:none;height:0}
 [hidden] {display:none}
@@ -193,13 +193,14 @@ a:hover {border-bottom:2px solid;border-color:#fff}
 }
 
 .content {
+    padding-top: 2px;
     width:100%
 }
 @media screen and (min-width: 58.75em) {
     .content {
         position:absolute;
         bottom:0;
-        top:13em
+        top:10em
     }
 }
 
@@ -319,7 +320,10 @@ a:hover {border-bottom:2px solid;border-color:#fff}
 .nav--tertiary li:last-child a {padding-right:0}
 }
 
-.logo {float:right}
+.logo {
+    width: 100%;
+    float:right
+}
 @media screen and (min-width: 40em) {.logo {margin-bottom:2em;float:none}
 }
 @media screen and (min-width: 58.75em) {.logo {margin-bottom:1.5em;margin:0}
@@ -328,9 +332,9 @@ a.logo {border:none !important}
 @media screen and (min-width: 58.75em) {a.logo {display:inline-block}
 }
 .logo_name{}
-@media screen and (max-width: 430px) {
+@media screen and (max-width: 58.75em) {
     .logo_name {
-        text-align:center;
+        text-align:right;
         font-size: 1.5em;
     } 
 }
@@ -419,7 +423,7 @@ a.logo {border:none !important}
 .figure_main .figure__object {max-width:100%;margin:0 auto}
 @media screen and (min-width: 58.75em) {.figure_main .figure__object {max-width:100%}
 }
-.figure_main .non_figure__caption {margin:6em auto 0 auto}
+.figure_main .non_figure__caption {margin:2em auto 0 auto}
 
 @media screen and (min-width: 58.75em) {
     .figure_main .non_figure__caption {
@@ -578,4 +582,3 @@ a.logo {border:none !important}
 .jj {
     font-family: font-family: 'Bodoni MT', Didot, 'Didot LT STD', 'Hoefler Text', Garamond, 'Times New Roman', serif;
 }
-
