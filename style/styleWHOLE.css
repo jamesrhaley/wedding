@@ -123,11 +123,33 @@ th,td {padding:.25em .5em;border:1px solid #252525}
 tr:nth-child(odd) td {background-color:#F6F6F6}
 th,legend {font-weight:bold;background:#cdccb7}
 label {display:block;padding-bottom:.25em;font-weight:bold}
-input,select,textarea {padding:.75em;color:#666;background-color:#FFF;border:none;margin-bottom:1.5em;-webkit-appearance:none;border-radius:0}
+
 input:focus,select:focus,textarea:focus {outline:none}
 input::-webkit-input-placeholder,textarea::-webkit-input-placeholder {font-family:"Helvetica Neue",sans-serif;font-weight:bold;letter-spacing:.1em;text-transform:uppercase;color:#34ab00}
-button,.btn:link,input[type=submit] {display:inline-block;font-family:"Helvetica Neue",sans-serif;font-weight:bold;text-transform:uppercase;letter-spacing:.2em;color:#fff;margin-bottom:1em;border-bottom:3px solid #fff;padding-bottom:2px}
-button:hover,.btn:link:hover,input[type=submit]:hover {border-width:5px;padding-bottom:0}
+button,.btn:link {
+    display:inline-block;
+    font-family:"Helvetica Neue",sans-serif;
+    font-weight:bold;
+    text-transform:uppercase;
+    letter-spacing:.2em;
+    color:#fff;margin-bottom:1em;
+    border-bottom:3px solid #fff;
+    padding-bottom:2px
+}
+input[type=submit] {
+    display:inline-block;
+    font-family:"Helvetica Neue",sans-serif;
+    font-weight:bold;
+    text-transform:uppercase;
+    letter-spacing:.2em;
+    color:#fff;
+    margin-top: 1em;
+    margin-bottom:1em;
+    padding-top: 2px;
+    padding-bottom:2px
+}
+button:hover,.btn:link:hover {border-width:5px;padding-bottom:0}
+input[type=submit]:hover { opacity: 0.7 }
 button.submit,.btn--solid {background:#252525;border:none;padding:.75em 1.5em}
 button.submit:hover,.btn--solid:hover {background-color:#3f3f3f}
 .btn--support,.btn--support:link {margin-bottom:.6em}
@@ -582,3 +604,44 @@ a.logo {border:none !important}
 .jj {
     font-family: font-family: 'Bodoni MT', Didot, 'Didot LT STD', 'Hoefler Text', Garamond, 'Times New Roman', serif;
 }
+/*!
+ *  Font Awesome 4.3.0 by @davegandy - http://fontawesome.io - @fontawesome
+ *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
+ */@font-face{font-family:FontAwesome;src:url(../fonts/fontawesome-webfont.eot?v=4.3.0);src:url(../fonts/fontawesome-webfont.eot?#iefix&v=4.3.0) format('embedded-opentype'),url(../fonts/fontawesome-webfont.woff2?v=4.3.0) format('woff2'),url(../fonts/fontawesome-webfont.woff?v=4.3.0) format('woff'),url(../fonts/fontawesome-webfont.ttf?v=4.3.0) format('truetype'),url(../fonts/fontawesome-webfont.svg?v=4.3.0#fontawesomeregular) format('svg');font-weight:400;font-style:normal}.fa{display:inline-block;font:normal normal normal 14px/1 FontAwesome;font-size:inherit;text-rendering:auto;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;transform:translate(0,0)}.fa-lg{font-size:1.33333333em;line-height:.75em;vertical-align:-15%}.fa-2x{font-size:2em}.fa-3x{font-size:3em}.fa-4x{font-size:4em}.fa-5x{font-size:5em}.fa-fw{width:1.28571429em;text-align:center}.fa-ul{padding-left:0;margin-left:2.14285714em;list-style-type:none}.fa-ul>li{position:relative}.fa-li{position:absolute;left:-2.14285714em;width:2.14285714em;top:.14285714em;text-align:center}.fa-li.fa-lg{left:-1.85714286em}.fa-border{padding:.2em .25em .15em;border:.08em solid #eee;border-radius:.1em}.pull-right{float:right}.pull-left{float:left}.fa.pull-left{margin-right:.3em}.fa.pull-right{margin-left:.3em}.fa-spin{-webkit-animation:fa-spin 2s infinite linear;animation:fa-spin 2s infinite linear}.fa-pulse{-webkit-animation:fa-spin 1s infinite steps(8);animation:fa-spin 1s infinite steps(8)}@-webkit-keyframes fa-spin{0%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}100%{-webkit-transform:rotate(359deg);transform:rotate(359deg)}}@keyframes fa-spin{0%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}100%{-webkit-transform:rotate(359deg);transform:rotate(359deg)}}.fa-rotate-90{filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=1);-webkit-transform:rotate(90deg);-ms-transform:rotate(90deg);transform:rotate(90deg)}.fa-rotate-180{filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=2);-webkit-transform:rotate(180deg);-ms-transform:rotate(180deg);transform:rotate(180deg)}.fa-rotate-270{filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=3);-webkit-transform:rotate(270deg);-ms-transform:rotate(270deg);transform:rotate(270deg)}.fa-flip-horizontal{filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1);-webkit-transform:scale(-1,1);-ms-transform:scale(-1,1);transform:scale(-1,1)}.fa-flip-vertical{filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1);-webkit-transform:scale(1,-1);-ms-transform:scale(1,-1);transform:scale(1,-1)}:root .fa-flip-horizontal,:root .fa-flip-vertical,:root .fa-rotate-180,:root .fa-rotate-270,:root .fa-rotate-90{filter:none}.fa-stack{position:relative;display:inline-block;width:2em;height:2em;line-height:2em;vertical-align:middle}.fa-stack-1x,.fa-stack-2x{position:absolute;left:0;width:100%;text-align:center}.fa-stack-1x{line-height:inherit}.fa-stack-2x{font-size:2em}.fa-inverse{color:#fff}.fa-times-circle:before{content:"\f057"}.fa-bars:before,.fa-navicon:before,.fa-reorder:before{content:"\f0c9"}
+ 
+.img_wrapper {
+    border:1px solid rgba(255, 255, 255, 0);
+    position: relative;
+    height: 0;
+    overflow: hidden;
+    background-color:rgba(255, 255, 255, 0.12);;
+}
+.ratio-size {
+    padding-bottom: 31.79%
+}
+.img_wrapper img{
+    -moz-box-sizing:border-box;
+    box-sizing:border-box;
+    position:absolute;
+    top: 0;
+    left: 0;
+    width:100%;
+    opacity: 0;
+    -webkit-transition: opacity 450ms;
+    -moz-transition: opacity 450ms;
+    -ms-transition: opacity 450ms;
+    transition: opacity 450ms;
+}
+.img_wrapper.loaded img{
+    opacity: 1;
+}
+
+/*.resources{
+    margin:0 auto;
+    padding-top:30px
+}
+.resources:after {
+    content:"";
+    display:table;
+    clear:both
+}*/
