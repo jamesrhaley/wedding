@@ -547,7 +547,7 @@ a.logo {border:none !important}
 
 
 
-.bg--light-blue {background-color:#1FA1E8} /*#0096e9*/
+.bg--light-blue {background-color:#26b3e8} /*#0096e9  #1FA1E8*/
 .bg--purple {background-color:#C950D7;color:#FFF} /*#34ab00|#1BC2BB|#46C09B|#03C58A|#03C57B|#1FC3|#B21FC3*/
 .bg--purple h3 {color:#252525}
 .bg--dark-blue {background-color:#00374e}
@@ -564,7 +564,7 @@ a.logo {border:none !important}
 .bg--white .nav-toggle--open,.bg--sky .nav-toggle--open,.bg--yellow .nav-toggle--open,.bg--grey .nav-toggle--open {background-color:rgba(0,0,0,0.1);color:#252525}
 .bg--sky {background-color:#DBE8EF}
 .bg--dark-sky {background-color:#070E18}
-.bg--yellow {background-color:#FFFD5B} /*#ffde00|#FFF98A*/
+.bg--yellow {background-color:#fbed17} /*#ffde00|#FFF98A|#FFFD5B*/
 .bg--grey {background-color:#F3F3F3}
 .bg--grey--dark {background-color:#e3e3e3;color:#252525}
 @media screen and (max-width: 58.75em) {.bg--clean {background-image:none !important}
